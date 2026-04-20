@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eliza Ali — 7 faits sur une journaliste</title>
+  <meta name="description" content="Journaliste au Monde, correspondante internationale, autrice — 7 faits sur Eliza Ali. Paris, 2031." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Eliza Ali — 7 faits sur une journaliste" />
+  <meta property="og:description" content="Journaliste au Monde, correspondante internationale, autrice — 7 faits sur Eliza Ali. Paris, 2031." />
+  <meta property="og:type" content="profile" />
+  <meta property="og:locale" content="fr_FR" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #0a0a0a;
+      --bg-card: #111111;
+      --bg-card-hover: #161616;
+      --text-primary: #f0ede8;
+      --text-secondary: #8a8680;
+      --text-muted: #4a4744;
+      --accent: #c0392b;
+      --accent-dim: rgba(192, 57, 43, 0.12);
+      --border: rgba(255, 255, 255, 0.07);
+      --number-color: rgba(255, 255, 255, 0.04);
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .site-header .brand {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .site-header .date-tag {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 7rem 2rem 4rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 2rem;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 9vw, 7.5rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      font-weight: 700;
+      font-style: italic;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-intro {
+      margin-top: 2rem;
+      font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+      font-style: italic;
+      color: var(--text-secondary);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    .hero-location {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 1.5rem;
+    }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      max-width: 900px;
+      margin: 0 auto 0;
+      padding: 0 2rem;
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── FACTS GRID ── */
+    .facts-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+
+    .fact-item {
+      position: relative;
+      padding: 3.5rem 0 3.5rem;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      transition: background 0.3s ease;
+      overflow: hidden;
+    }
+
+    .fact-item:last-child {
+      border-bottom: none;
+    }
+
+    /* Large ghost number behind content */
+    .fact-number-bg {
+      position: absolute;
+      top: 50%;
+      right: -0.5rem;
+      transform: translateY(-50%);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(7rem, 18vw, 14rem);
+      font-weight: 900;
+      color: var(--number-color);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.04em;
+      transition: color 0.3s ease;
+    }
+
+    .fact-item:hover .fact-number-bg {
+      color: rgba(192, 57, 43, 0.06);
+    }
+
+    .fact-content {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+    }
+
+    .fact-number-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .fact-number-label::before {
+      content: '';
+      display: inline-block;
+      width: 1.2rem;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .fact-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .fact-text {
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      max-width: 580px;
+    }
+
+    .fact-text em {
+      font-style: italic;
+      color: var(--text-primary);
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-text {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .footer-accent {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .site-header {
+        padding: 1rem 1.25rem;
+      }
+
+      .hero {
+        padding: 4rem 1.25rem 3rem;
+      }
+
+      .section-divider,
+      .facts-section {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+
+      .fact-number-bg {
+        right: -1rem;
+        opacity: 0.7;
+      }
+
+      .site-footer {
+        padding: 1.5rem 1.25rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <span class="brand">Portrait</span>
+    <span class="date-tag">Paris — 2031</span>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Journaliste</p>
+    <h1 class="hero-title">Eliza<br/>Ali</h1>
+    <p class="hero-subtitle">7 faits</p>
+    <p class="hero-location">Paris &nbsp;·&nbsp; 2031</p>
+    <p class="hero-intro">Elle a débuté avec un girafon obèse à Moscou. Elle a fini avec un Pulitzer à Paris. Voici sept faits sur cette trajectoire — légèrement embellis, comme il se doit.</p>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- FACTS -->
+  <section class="facts-section">
+
+    <article class="fact-item">
+      <span class="fact-number-bg" aria-hidden="true">01</span>
+      <div class="fact-content">
+        <p class="fact-number-label">01</p>
+        <h2 class="fact-title">Elle travaille au Monde</h2>
+        <p class="fact-text">Journaliste au service international du Monde, elle couvre la Russie et l'espace post-soviétique. Elle vit à Paris.</p>
+      </div>
+    </article>
+
+    <article class="fact-item">
+      <span class="fact-number-bg" aria-hidden="true">02</span>
+      <div class="fact-content">
+        <p class="fact-number-label">02</p>
+        <h2 class="fact-title">Dix-huit mois au Moyen-Orient</h2>
+        <p class="fact-text">Entre 2029 et 2031, elle a passé dix-huit mois sur le terrain au Moyen-Orient. Elle en a ramené une série de reportages sur les femmes kurdes — leurs droits, leurs combats, leur quotidien.</p>
+      </div>
+    </article>
+
+    <article class="fact-item">
+      <span class="fact-number-bg" aria-hidden="true">03</span>
+      <div class="fact-content">
+        <p class="fact-number-label">03</p>
+        <h2 class="fact-title">Un livre, une thèse, un prix</h2>
+        <p class="fact-text">Son essai <em>Le langage de la propagande de Poutine : comment les médias pro-Kremlin ont fabriqué l'ennemi</em> est paru en 2030. Il est né de son mémoire de master. Il a reçu le Prix Pulitzer.</p>
+      </div>
+    </article>
+
+    <article class="fact-item">
+      <span class="fact-number-bg" aria-hidden="true">04</span>
+      <div class="fact-content">
+        <p class="fact-number-label">04</p>
+        <h2 class="fact-title">Tout a commencé avec un girafe obèse</h2>
+        <p class="fact-text">Son premier reportage, publié dans un journal de Nijni Novgorod en 2015, portait sur un girafon en surpoids au zoo de Moscou. Elle essayait de le sauver. Elle n'y est pas arrivée.</p>
+      </div>
+    </article>
+
+    <article class="fact-item">
+      <span class="fact-number-bg" aria-hidden="true">05</span>
+      <div class="fact-content">
+        <p class="fact-number-label">05</p>
+        <h2 class="fact-title">Un podcast, 100&nbsp;000 auditeurs</h2>
+        <p class="fact-text">Elle anime un podcast sur les femmes des pays de l'ex-URSS — leurs droits, leurs limites, leurs victoires. Plus de 100&nbsp;000 abonnés.</p>
+      </div>
+    </article>
+
+    <article class="fact-item">
+      <span class="fact-number-bg" aria-hidden="true">06</span>
+      <div class="fact-content">
+        <p class="fact-number-label">06</p>
+        <h2 class="fact-title">Un digest pour comprendre le monde</h2>
+        <p class="fact-text">Chaque semaine, elle envoie une newsletter aux lecteurs russophones : ce qui se passe dans le monde, et ce que ça change concrètement pour les gens ordinaires.</p>
+      </div>
+    </article>
+
+    <article class="fact-item">
+      <span class="fact-number-bg" aria-hidden="true">07</span>
+      <div class="fact-content">
+        <p class="fact-number-label">07</p>
+        <h2 class="fact-title">Elle chante</h2>
+        <p class="fact-text">Depuis cinq ans, elle prend des cours de chant. Pas pour en faire un métier. Juste parce que.</p>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p class="footer-text">Eliza Ali, Master Nouvelles Pratiques Journalistiques<br/>Université Lumière Lyon 2 — 2026</p>
+    <span class="footer-accent">Portrait &nbsp;·&nbsp; 2031</span>
+  </footer>
+
+</body>
+</html>
